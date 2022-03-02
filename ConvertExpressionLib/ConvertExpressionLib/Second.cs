@@ -1,35 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConvertExpressionLib
 {
-    public class FirstClass
+    public class Second
     {
-        public static Dictionary<string, decimal> variableDictionary = new Dictionary<string, decimal>()
-        {
-            {"plast", 16 },
-            {"x", 1 },
-            {"y", 2 },
-            {"z", 3 }
-        };
-
-        //TODO Это что-ужасное. Переделай на абстракции
-        public static string ReplacerV(string inString)
+        public static string ReplacerV(string inString, Dictionary<string, decimal> variableDictionary)
         {
             try
             {
                 foreach (var variable in variableDictionary)
                 {
                     int ind = inString.IndexOf(variable.Key);
-                    //Trace.WriteLine("index of = " + ind);
-                    //Trace.WriteLine(inString);
+                    Trace.WriteLine("index of = " + ind);
+                    Trace.WriteLine(inString);
 
                     if (ind >= 0)
                     {
                         inString = inString.Remove(ind, variable.Key.Length);
-                        //Trace.WriteLine(inString);
+                        Trace.WriteLine(inString);
                         inString = inString.Insert(ind, variable.Value.ToString());
-                        //Trace.WriteLine(inString);
+                        Trace.WriteLine(inString);
                     }
                 }
 
@@ -50,12 +45,12 @@ namespace ConvertExpressionLib
                 while (inString.Contains('('))
                 {
                     int ind1 = inString.LastIndexOf("(");
-                    //Trace.WriteLine("LastIndexOf(\"(\") = " + ind1);
-                    //Trace.WriteLine(inString[ind1]);
+                    Trace.WriteLine("LastIndexOf(\"(\") = " + ind1);
+                    Trace.WriteLine(inString[ind1]);
 
                     int ind2 = inString.IndexOf(")", ind1);
-                    //Trace.WriteLine("IndexOf(\")\") = " + ind2);
-                    //Trace.WriteLine(inString[ind2]);
+                    Trace.WriteLine("IndexOf(\")\") = " + ind2);
+                    Trace.WriteLine(inString[ind2]);
 
                     string str = null;
 
@@ -64,7 +59,7 @@ namespace ConvertExpressionLib
 
                     for (int i = ind1 + 1; i < ind2; i++)
                     {
-                        //Trace.Write(inString[i]);
+                        Trace.Write(inString[i]);
                         if (Char.IsNumber(inString[i]))
                         {
                             str = str + inString[i];
@@ -77,13 +72,15 @@ namespace ConvertExpressionLib
                     }
                     dec2 = Convert.ToDecimal(str);
                     str = null;
-                    //Trace.WriteLine("");
+                    Trace.WriteLine("");
 
-                    //Trace.WriteLine("--------------------");
-                    //Trace.WriteLine(dec1);
-                    //Trace.WriteLine(dec2);
-                    //Trace.WriteLine("--------------------");
+                    Trace.WriteLine("--------------------");
+                    Trace.WriteLine(dec1);
+                    Trace.WriteLine(dec2);
+                    Trace.WriteLine("--------------------");
 
+                    //Индекс с которого будем искать начало ключевого слова (sum м других)
+                    // -4 нужно для что бы отступить от открывающей скобки к началу ключевого слова
                     int sInd = ind1 - 4;
                     if (sInd < 0)
                         sInd = 0;
@@ -93,11 +90,11 @@ namespace ConvertExpressionLib
                     if (sumInd >= 0)
                     {
                         decimal sumRes = dec1 + dec2;
-                        //Trace.WriteLine("sumRes = " + sumRes);
+                        Trace.WriteLine("sumRes = " + sumRes);
                         inString = inString.Remove(sumInd, ind2 - sumInd + 1);
                         inString = inString.Insert(sumInd, sumRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
 
@@ -105,11 +102,11 @@ namespace ConvertExpressionLib
                     if (subInd >= 0)
                     {
                         decimal subRes = dec1 - dec2;
-                        //Trace.WriteLine("sumRes = " + subRes);
+                        Trace.WriteLine("sumRes = " + subRes);
                         inString = inString.Remove(subInd, ind2 - subInd + 1);
                         inString = inString.Insert(subInd, subRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
 
@@ -117,11 +114,11 @@ namespace ConvertExpressionLib
                     if (multInd >= 0)
                     {
                         decimal multRes = dec1 * dec2;
-                        //Trace.WriteLine("multRes = " + multRes);
+                        Trace.WriteLine("multRes = " + multRes);
                         inString = inString.Remove(multInd, ind2 - multInd + 1);
                         inString = inString.Insert(multInd, multRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
 
@@ -129,11 +126,11 @@ namespace ConvertExpressionLib
                     if (divInd >= 0)
                     {
                         decimal divRes = dec1 / dec2;
-                        //Trace.WriteLine("divRes = " + divRes);
+                        Trace.WriteLine("divRes = " + divRes);
                         inString = inString.Remove(divInd, ind2 - divInd + 1);
                         inString = inString.Insert(divInd, divRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
 
@@ -141,11 +138,11 @@ namespace ConvertExpressionLib
                     if (modInd >= 0)
                     {
                         decimal modRes = dec1 % dec2;
-                        //Trace.WriteLine("modRes = " + modRes);
+                        Trace.WriteLine("modRes = " + modRes);
                         inString = inString.Remove(modInd, ind2 - modInd + 1);
                         inString = inString.Insert(modInd, modRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
 
@@ -153,11 +150,11 @@ namespace ConvertExpressionLib
                     if (ceilInd >= 0)
                     {
                         decimal ceilRes = Math.Ceiling(dec1 / dec2);
-                        //Trace.WriteLine("ceilRes = " + ceilRes);
+                        Trace.WriteLine("ceilRes = " + ceilRes);
                         inString = inString.Remove(ceilInd, ind2 - ceilInd + 1);
                         inString = inString.Insert(ceilInd, ceilRes.ToString());
-                        //Trace.WriteLine(inString);
-                        //Trace.WriteLine("--------------------");
+                        Trace.WriteLine(inString);
+                        Trace.WriteLine("--------------------");
                         continue;
                     }
                 }
@@ -172,7 +169,7 @@ namespace ConvertExpressionLib
             }
         }
 
-        public static decimal MainFun(string formulaStr)
+        public static decimal MainFun(string formulaStr, Dictionary<string, decimal> variableDictionary)
         {
             decimal outputD = 0;
             try
@@ -181,7 +178,7 @@ namespace ConvertExpressionLib
                 formulaStr = formulaStr.Trim();
                 //Trace.WriteLine(formulaStr);
 
-                formulaStr = ReplacerV(formulaStr);
+                formulaStr = ReplacerV(formulaStr, variableDictionary);
                 ReplacerF(formulaStr, out outputD);
             }
             catch (Exception ex)

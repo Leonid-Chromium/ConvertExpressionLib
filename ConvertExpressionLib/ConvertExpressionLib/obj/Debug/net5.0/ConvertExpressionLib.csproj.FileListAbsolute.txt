@@ -1,0 +1,12 @@
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\bin\Debug\net5.0\ConvertExpressionLib.deps.json
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\bin\Debug\net5.0\ConvertExpressionLib.dll
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\bin\Debug\net5.0\ref\ConvertExpressionLib.dll
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\bin\Debug\net5.0\ConvertExpressionLib.pdb
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.csproj.AssemblyReference.cache
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.AssemblyInfoInputs.cache
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.AssemblyInfo.cs
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.csproj.CoreCompileInputs.cache
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.dll
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ref\ConvertExpressionLib.dll
+D:\File\GitHub\ConvertExpressionLib\ConvertExpressionLib\ConvertExpressionLib\obj\Debug\net5.0\ConvertExpressionLib.pdb
