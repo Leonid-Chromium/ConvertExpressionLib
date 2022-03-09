@@ -15,13 +15,13 @@ namespace ConvertExpressionLib
             {
                 foreach (var variable in variableDictionary)
                 {
-                    int ind = inString.IndexOf(variable.Key);
+                    int ind = inString.IndexOf(" " + variable.Key + " ");
                     Trace.WriteLine("index of = " + ind);
                     Trace.WriteLine(inString);
 
                     if (ind >= 0)
                     {
-                        inString = inString.Remove(ind, variable.Key.Length);
+                        inString = inString.Remove(ind, variable.Key.Length + 2);
                         Trace.WriteLine(inString);
                         inString = inString.Insert(ind, variable.Value.ToString());
                         Trace.WriteLine(inString);
